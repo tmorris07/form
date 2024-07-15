@@ -7,7 +7,11 @@
     <main>
         <form action="submit_form.php" method="post">
             <div class="form-group">
-                <label for="name">Full Name:</label>
+                <label for="name">First Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="name">Last Name:</label>
                 <input type="text" id="name" name="name" required>
             </div>
             <div class="form-group">
@@ -24,8 +28,6 @@
                 <label for="male">Male</label>
                 <input type="radio" id="female" name="gender" value="female">
                 <label for="female">Female</label>
-                <input type="radio" id="other" name="gender" value="other">
-                <label for="other">Other</label>
             </div>
             <div class="form-group">
                 <label for="age">Age:</label>
@@ -50,10 +52,6 @@
                 <label for="hobby3">Sports</label>
             </div>
             <div class="form-group">
-                <label for="message">Message:</label>
-                <textarea id="message" name="message" rows="4" cols="50"></textarea>
-            </div>
-            <div class="form-group">
                 <label for="newsletter">Subscribe to our newsletter:</label>
                 <input type="checkbox" id="newsletter" name="newsletter" value="yes">
             </div>
@@ -62,8 +60,5 @@
             </div>
         </form>
     </main>
-    <footer>
-        <p>&copy; 2024 Your Name. All rights reserved.</p>
-    </footer>
 </body>
 </html>
