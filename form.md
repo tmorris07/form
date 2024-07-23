@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SSD Purchase Form</title>
+    SSD Purchase Form
 </head>
 <body>
     <div class="form-container">
