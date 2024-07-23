@@ -1,64 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SSD Purchase Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .form-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input[type="text"], input[type="number"] {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .total {
+            margin-top: 15px;
+            font-weight: bold;
+        }
+    </style>
+</head>
 <body>
-    <header>
-        <h1>Contact Form</h1>
-    </header>
-    <main>
-        <form action="submit_form.php" method="post">
+    <div class="form-container">
+        <form id="ssdForm">
             <div class="form-group">
-                <label for="name">First Name:</label>
-                <input type="text" id="name" name="name" required>
-            </div>
-            <div class="form-group">
-                <label for="name">Last Name:</label>
+                <label for="name">Name:</label>
                 <input type="text" id="name" name="name" required>
             </div>
             <div class="form-group">
                 <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
+                <input type="text" id="email" name="email" required>
             </div>
             <div class="form-group">
-                <label for="phone">Phone Number:</label>
-                <input type="tel" id="phone" name="phone">
+                <label for="quantity">Quantity of SSDs:</label>
+                <input type="number" id="quantity" name="quantity" required>
             </div>
-            <div class="form-group">
-                <label for="gender">Gender:</label>
-                <input type="radio" id="male" name="gender" value="male">
-                <label for="male">Male</label>
-                <input type="radio" id="female" name="gender" value="female">
-                <label for="female">Female</label>
-            </div>
-            <div class="form-group">
-                <label for="age">Age:</label>
-                <input type="number" id="age" name="age" min="0" max="120">
-            </div>
-            <div class="form-group">
-                <label for="country">Country:</label>
-                <select id="country" name="country">
-                    <option value="usa">United States</option>
-                    <option value="canada">Canada</option>
-                    <option value="uk">United Kingdom</option>
-                    <option value="other">Other</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="hobbies">Hobbies:</label>
-                <input type="checkbox" id="hobby1" name="hobbies" value="reading">
-                <label for="hobby1">Reading</label>
-                <input type="checkbox" id="hobby2" name="hobbies" value="traveling">
-                <label for="hobby2">Traveling</label>
-                <input type="checkbox" id="hobby3" name="hobbies" value="sports">
-                <label for="hobby3">Sports</label>
-            </div>
-            <div class="form-group">
-                <label for="newsletter">Subscribe to our newsletter:</label>
-                <input type="checkbox" id="newsletter" name="newsletter" value="yes">
-            </div>
-            <div class="form-group">
-                <button type="submit">Submit</button>
-            </div>
+            <button type="button" onclick="calculateTotal()">Calculate Total</button>
+            <div class="total" id="total"></div>
         </form>
-    </main>
+    </div>
+    <script>
+        function calculateTotal() {
+            const quantity = document.getElementById('quantity').value;
+            const pricePerSSD = 100; // Price per SSD
+            const total = quantity * pricePerSSD;
+            document.getElementById('total').textContent = 'Total: $' + total;
+        }
+    </script>
 </body>
 </html>
