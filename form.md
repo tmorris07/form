@@ -17,7 +17,7 @@
                 <input type="text" id="email" name="email" required>
             </div>
             <div class="form-group">
-                <label for="quantity">Quantity of SSDs:</label>
+                <label for="quantity">Quantity of SSDs ($100 each):</label>
                 <input type="number" id="quantity" name="quantity" required>
             </div>
             <button type="button" onclick="calculateTotal()">Calculate Total</button>
