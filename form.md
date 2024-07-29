@@ -3,7 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    SSD Purchase Form
+    <title>SSD Purchase Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .form-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input[type="text"], input[type="number"] {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .total, .discount {
+            margin-top: 15px;
+            font-weight: bold;
+        }
+        .discount {
+            color: green;
+        }
+    </style>
 </head>
 <body>
     <div class="form-container">
@@ -17,19 +62,30 @@
                 <input type="text" id="email" name="email" required>
             </div>
             <div class="form-group">
-                <label for="quantity">Quantity of SSDs ($100 each):</label>
+                <label for="quantity">Quantity of SSDs:</label>
                 <input type="number" id="quantity" name="quantity" required>
             </div>
             <button type="button" onclick="calculateTotal()">Calculate Total</button>
             <div class="total" id="total"></div>
+            <div class="discount" id="discount"></div>
         </form>
     </div>
     <script>
         function calculateTotal() {
-            const quantity = document.getElementById('quantity').value;
+            const quantity = parseInt(document.getElementById('quantity').value, 10);
             const pricePerSSD = 100; // Price per SSD
-            const total = quantity * pricePerSSD;
-            document.getElementById('total').textContent = 'Total: $' + total;
+            const discountThreshold = 5; // Quantity threshold for discount
+            const discountPercent = 0.10; // 10% discount
+            let total = quantity * pricePerSSD;
+            let discountAmount = 0;
+            if (quantity > discountThreshold) {
+                discountAmount = total * discountPercent;
+                total -= discountAmount;
+                document.getElementById('discount').textContent = 'Discount Applied: 10%';
+            } else {
+                document.getElementById('discount').textContent = '';
+            }
+            document.getElementById('total').textContent = 'Total: $' + total.toFixed(2);
         }
     </script>
 </body>
